@@ -16,16 +16,16 @@ class FirebaseAuthService {
   constructor() {
     // UNCOMMENT IF YOU WANT TO USE FIREBASE
 
-    // this.init();
-    // this.auth = firebase.auth();
-    // this.firestore = firebase.firestore();
+    this.init();
+    this.auth = firebase.auth();
+    this.firestore = firebase.firestore();
 
     //   this.database  = firebase.database();
     //   this.storage = firebase.storage();
     
-    // this.googleProvider = new firebase.auth.GoogleAuthProvider();
-    // this.facebookProvider = new firebase.auth.FacebookAuthProvider();
-    // this.twitterProvider = new firebase.auth.TwitterAuthProvider();
+    this.googleProvider = new firebase.auth.GoogleAuthProvider();
+    this.facebookProvider = new firebase.auth.FacebookAuthProvider();
+    this.twitterProvider = new firebase.auth.TwitterAuthProvider();
   }
 
   init = () => {

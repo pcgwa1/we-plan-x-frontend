@@ -4,14 +4,15 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  Button
+  Button,
 } from "@material-ui/core";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
+import { firebaseSignUpEmailPassword } from "../../redux/actions/SignUpActions";
 
 class SignUp extends Component {
   state = {
-    username: "",
     email: "",
     password: "",
     agreement: ""
@@ -24,7 +25,9 @@ class SignUp extends Component {
     });
   };
 
-  handleFormSubmit = event => {};
+  handleFormSubmit = event => {
+    this.props.firebaseSignUpEmailPassword({ ...this.state });
+  };
   render() {
     let { username, email, password } = this.state;
     return (
@@ -40,17 +43,6 @@ class SignUp extends Component {
               <Grid item lg={7} md={7} sm={7} xs={12}>
                 <div className="p-36 h-100">
                   <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
-                    <TextValidator
-                      className="mb-24 w-100"
-                      variant="outlined"
-                      label="Username"
-                      onChange={this.handleChange}
-                      type="text"
-                      name="username"
-                      value={username}
-                      validators={["required"]}
-                      errorMessages={["this field is required"]}
-                    />
                     <TextValidator
                       className="mb-24 w-100"
                       variant="outlined"
@@ -114,10 +106,11 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  // setUser: PropTypes.func.isRequired
+  // setUser: PropTypes.func.isRequired,
+  firebaseSignUpEmailPassword: PropTypes.func.isRequired,
 });
 
 export default connect(
   mapStateToProps,
-  {}
+  { firebaseSignUpEmailPassword }
 )(SignUp);

@@ -1,0 +1,61 @@
+{
+  "conditions": [
+    {
+      "name": "ios",
+      "expression": "device.os == 'ios'"
+    }
+  ],
+  "parameterGroups": {
+    "group1": {
+      "parameters": {
+        "key1": {
+          "defaultValue": {
+            "value": "value for key1"
+          },
+          "description": "description is Optional. Description for key1."
+        },
+        "key2": {
+          "defaultValue": {
+            "value": "[\"array Value 1\", \"array Value 2\"]"
+          },
+          "description": "Description for key2."
+        }
+      }
+    }
+  },
+  "parameters": {
+    "welcome_message": {
+      "defaultValue": {
+        "value": "Welcome to this sample app"
+      },
+      "conditionalValues": {
+        "ios": {
+          "value": "Welcome to this sample iOS app"
+        }
+      },
+      "description": "Description for key1."
+    },
+    "welcome_message_caps": {
+      "defaultValue": {
+        "value": "false"
+      }
+    },
+    "demo2_object": {
+      "defaultValue": {
+        "value": "{\"objKey\":\"objValue\"}"
+      },
+      "description": "An object value can be added like this."
+    },
+    "demo3_array": {
+      "defaultValue": {
+        "value": "[\"arrValue 1\", \"arrValue 2\"]"
+      },
+      "description": "An array value can be added like this."
+    },
+    "header_text": {
+      "defaultValue": {
+        "useInAppDefault": true
+      }
+    }
+  }
+}

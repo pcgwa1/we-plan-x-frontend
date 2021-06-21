@@ -27,7 +27,7 @@ export const signup = (data) => {
 }
 
 export const signout = () => {
-    console.log("Log out successfule");
+    console.log("Log out successful");
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(true);
