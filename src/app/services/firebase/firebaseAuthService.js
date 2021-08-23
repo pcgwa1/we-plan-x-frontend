@@ -89,6 +89,33 @@ class FirebaseAuthService {
   signOut = () => {
     return this.auth.signOut();
   };
+
+  updateGridLayout = (layout, blocks, uid) => {
+    const docRef = this.firestore.collection('layouts').doc(uid)
+    docRef.set({
+        id: docRef.id,
+        blocks: blocks,
+        layouts: layout
+      })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
+  }
+
+  getLayoutData = async docId => {
+    //   generally it's better to use uid for docId
+    return await this.firestore
+      .collection("layouts")
+      .doc(docId)
+      .get()
+      .then(doc => {
+        console.log('get layouts', doc.data());
+        return doc.data()
+      });
+  };
 }
 
 const instance = new FirebaseAuthService();

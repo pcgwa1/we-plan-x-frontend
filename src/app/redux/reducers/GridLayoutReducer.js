@@ -20,23 +20,16 @@ export default function gridLayoutReducer(state = initialState, action) {
 
         case "SET_LAYOUT": {
             const { layout, root, breakpoint } = action.payload;
-            const index = state.layouts[breakpoint].findIndex(({ i }) => i === root);
-            if (index === -1) {
-                return state;
-            }
+            // const index = state.layouts[breakpoint].findIndex(({ i }) => i === root);
+            // if (index === -1) {
+            //     return state;
+            // }
 
             const layouts = state.layouts[breakpoint];
 
             return {
                 ...state,
-                layouts: {
-                    ...state.layouts,
-                    [breakpoint]: [
-                        ...layouts.slice(0, index),
-                        layout,
-                        ...layouts.slice(index + 1)
-                    ]
-                }
+                layouts: layout
             };
         }
 

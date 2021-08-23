@@ -49,8 +49,12 @@ class Layout1Topbar extends Component {
     let mode;
     if (isMdScreen()) {
       mode = layout1Settings.leftSidebar.mode === "close" ? "mobile" : "close";
+      // mode = layout1Settings.leftSidebar.mode === "close" ? "close" : "close";
+
     } else {
       mode = layout1Settings.leftSidebar.mode === "full" ? "close" : "full";
+      // mode = layout1Settings.leftSidebar.mode === "full" ? "close" : "close";
+
     }
     this.updateSidebarMode({ mode });
   };
@@ -72,9 +76,7 @@ class Layout1Topbar extends Component {
           >
             <div className="flex flex-space-between flex-middle h-100">
               <div className="flex">
-                <IconButton onClick={this.handleSidebarToggle}>
-                  <Icon>menu</Icon>
-                </IconButton>
+           
 
                 {/*<div className="hide-on-mobile">*/}
                 {/*  <IconButton>*/}
@@ -137,6 +139,9 @@ class Layout1Topbar extends Component {
                     <span className="pl-16"> Logout </span>
                   </MenuItem>
                 </EgretMenu>
+                <IconButton onClick={this.handleSidebarToggle}>
+                  <Icon>menu</Icon>
+                </IconButton>
               </div>
             </div>
           </div>

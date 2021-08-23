@@ -1,8 +1,8 @@
 import { EgretLoadable } from "egret";
 import { authRoles } from "../../auth/authRoles";
 
-const LearningManagement = EgretLoadable({
-  loader: () => import("./LearningManagement")
+const OneDeck = EgretLoadable({
+  loader: () => import("./OneDeck")
 });
 const Analytics = EgretLoadable({
   loader: () => import("./Analytics")
@@ -31,7 +31,7 @@ const dashboardRoutes = [
   // },
   {
     path: "/dashboard/deck",
-    component: LearningManagement,
+    component: OneDeck,
     auth: authRoles.admin
   }
 ];

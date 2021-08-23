@@ -306,4 +306,15 @@
     cursor: pointer;
   }
 
+
+  .dashboard-grid-layout {
+  
+
+    .dashboard-grid-layout-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin: 12px 30px 0;
+    }
+  }
+
 }

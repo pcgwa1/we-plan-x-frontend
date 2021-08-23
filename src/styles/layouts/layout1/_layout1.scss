@@ -62,9 +62,9 @@
       }
     }
     .content-wrap {
-      width: calc(100% - #{$sidenav-width});
+      width: 100%;
       vertical-align: top;
-      margin-left: $sidenav-width;
+      // margin-left: $sidenav-width;
       
     }
   }
