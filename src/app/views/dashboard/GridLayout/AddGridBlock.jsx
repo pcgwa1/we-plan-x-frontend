@@ -69,7 +69,7 @@ export default function FullScreenDialog({ onAddBlock, layouts }) {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open full-screen dialog
+        Apps
       </Button>
       <Dialog
         fullScreen
