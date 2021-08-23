@@ -1,0 +1,17 @@
+[debug] [2021-06-21T06:59:33.076Z] ----------------------------------------------------------------------
+[debug] [2021-06-21T06:59:33.080Z] Command:       /Users/petergwaka/.nvm/versions/node/v12.20.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-06-21T06:59:33.080Z] CLI Version:   8.12.0
+[debug] [2021-06-21T06:59:33.081Z] Platform:      darwin
+[debug] [2021-06-21T06:59:33.081Z] Node Version:  v12.20.0
+[debug] [2021-06-21T06:59:33.093Z] Time:          Mon Jun 21 2021 08:59:33 GMT+0200 (South Africa Standard Time)
+[debug] [2021-06-21T06:59:33.093Z] ----------------------------------------------------------------------
+[debug] [2021-06-21T06:59:33.094Z] 
+[debug] [2021-06-21T06:59:33.108Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-21T06:59:33.109Z] > authorizing via signed-in user
+[debug] [2021-06-21T06:59:33.110Z] [iam] checking project we-plan-x for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-06-21T06:59:33.120Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-06-21T06:59:33.121Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-21T06:59:33.709Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Mon, 21 Jun 2021 06:59:33 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-21T06:59:33.754Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/we-plan-x:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
