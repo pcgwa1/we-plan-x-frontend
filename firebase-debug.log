@@ -1,25 +1,46 @@
-[debug] [2021-08-23T03:35:54.864Z] ----------------------------------------------------------------------
-[debug] [2021-08-23T03:35:54.867Z] Command:       /Users/petergwaka/.nvm/versions/node/v12.20.0/bin/node /usr/local/bin/firebase deploy
-[debug] [2021-08-23T03:35:54.867Z] CLI Version:   8.12.0
-[debug] [2021-08-23T03:35:54.867Z] Platform:      darwin
-[debug] [2021-08-23T03:35:54.868Z] Node Version:  v12.20.0
-[debug] [2021-08-23T03:35:54.869Z] Time:          Mon Aug 23 2021 05:35:54 GMT+0200 (South Africa Standard Time)
-[debug] [2021-08-23T03:35:54.869Z] ----------------------------------------------------------------------
-[debug] [2021-08-23T03:35:54.869Z] 
-[debug] [2021-08-23T03:35:54.896Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-08-23T03:35:54.898Z] > authorizing via signed-in user
-[debug] [2021-08-23T03:35:54.899Z] [iam] checking project we-plan-x for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2021-08-23T03:35:54.903Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/we-plan-x:testIamPermissions  
+[debug] [2021-11-03T03:07:34.146Z] ----------------------------------------------------------------------
+[debug] [2021-11-03T03:07:34.149Z] Command:       /Users/petergwaka/.nvm/versions/node/v12.20.0/bin/node /Users/petergwaka/.nvm/versions/node/v12.20.0/bin/firebase deploy
+[debug] [2021-11-03T03:07:34.150Z] CLI Version:   9.20.0
+[debug] [2021-11-03T03:07:34.150Z] Platform:      darwin
+[debug] [2021-11-03T03:07:34.150Z] Node Version:  v12.20.0
+[debug] [2021-11-03T03:07:34.151Z] Time:          Wed Nov 03 2021 05:07:34 GMT+0200 (South Africa Standard Time)
+[debug] [2021-11-03T03:07:34.151Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-03T03:07:34.203Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-03T03:07:34.203Z] > authorizing via signed-in user (pgwaka@gmail.com)
+[debug] [2021-11-03T03:07:34.204Z] [iam] checking project we-plan-x for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-11-03T03:07:34.206Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-11-03T03:07:34.206Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-03T03:07:34.684Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 03 Nov 2021 03:07:34 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:34.725Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/we-plan-x:testIamPermissions  
  {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2021-08-23T03:35:56.781Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 23 Aug 2021 03:35:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1498","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-08-23T03:35:56.785Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/we-plan-x  
- 
-[debug] [2021-08-23T03:35:57.325Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 23 Aug 2021 03:35:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:36.686Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 03 Nov 2021 03:07:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1493","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:36.689Z] > refreshing access token with scopes: []
+[debug] [2021-11-03T03:07:36.690Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-03T03:07:37.122Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 03 Nov 2021 03:07:37 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:37.175Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/we-plan-x [none]
+[debug] [2021-11-03T03:07:37.805Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/we-plan-x 200
+[debug] [2021-11-03T03:07:37.805Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/we-plan-x {"projectId":"we-plan-x","projectNumber":"866526524917","displayName":"We Plan X","name":"projects/we-plan-x","resources":{"hostingSite":"we-plan-x","realtimeDatabaseInstance":"we-plan-x","storageBucket":"we-plan-x.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
 [info] 
 [info] === Deploying to 'we-plan-x'...
 [info] 
 [info] i  deploying firestore, hosting 
 [info] i  firestore: reading indexes from firestore.indexes.json... 
 [info] i  cloud.firestore: checking firestore.rules for compilation errors... 
-[debug] [2021-08-23T03:35:57.335Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/we-plan-x:test  
+[debug] [2021-11-03T03:07:37.809Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-11-03T03:07:37.809Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-03T03:07:38.240Z] <<< HTTP RESPONSE 200 {"date":"Wed, 03 Nov 2021 03:07:38 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:38.300Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/we-plan-x:test  
  {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if request.auth.uid != null;\n    }\n  }\n}"}]}}
+[debug] [2021-11-03T03:07:39.377Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 03 Nov 2021 03:07:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2021-11-03T03:07:39.383Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/we-plan-x/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-11-03T03:07:42.119Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 03 Nov 2021 03:07:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-03T03:07:42.123Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/we-plan-x/releases?pageSize=10&pageToken=  
+ 
+[debug] [2021-11-03T03:07:42.124Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/we-plan-x/databases/(default)/collectionGroups/-/indexes  
+ 

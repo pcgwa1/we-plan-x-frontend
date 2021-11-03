@@ -5,28 +5,28 @@ export default {
             h: 3,
             x: 0,
             y: 0,
-            i: "block1"
+            i: "plan_x"
         },
         {
             w: 4,
             h: 2,
             x: 0,
             y: 0,
-            i: "block2"
+            i: "note_x"
         },
         {
             w: 4,
             h: 2,
             x: 4,
             y: 0,
-            i: "block3"
+            i: "chat_x"
         },
         {
             w: 4,
             h: 2,
             x: 8,
             y: 0,
-            i: "block4"
+            i: "task_x"
         }
     ],
     md: [
@@ -35,28 +35,28 @@ export default {
             h: 2,
             x: 0,
             y: 0,
-            i: "block1"
+            i: "plan_x"
         },
         {
             w: 4,
             h: 2,
             x: 6,
             y: 0,
-            i: "block2"
+            i: "note_x"
         },
         {
             w: 3,
             h: 2,
             x: 0,
             y: 0,
-            i: "block3"
+            i: "chat_x"
         },
         {
             w: 3,
             h: 2,
             x: 3,
             y: 0,
-            i: "block4"
+            i: "task_x"
         }
     ],
     sm: [
@@ -65,28 +65,28 @@ export default {
             h: 2,
             x: 0,
             y: 0,
-            i: "block1"
+            i: "plan_x"
         },
         {
             w: 3,
             h: 2,
             x: 0,
             y: 0,
-            i: "block2"
+            i: "note_x"
         },
         {
             w: 3,
             h: 2,
             x: 3,
             y: 0,
-            i: "block3"
+            i: "chat_x"
         },
         {
             w: 3,
             h: 2,
             x: 0,
             y: 0,
-            i: "block4"
+            i: "task_x"
         }
     ],
     xs: [
@@ -95,28 +95,28 @@ export default {
             h: 2,
             x: 0,
             y: 0,
-            i: "block1"
+            i: "plan_x"
         },
         {
             w: 4,
             h: 2,
             x: 0,
             y: 0,
-            i: "block2"
+            i: "note_x"
         },
         {
             w: 4,
             h: 2,
             x: 0,
             y: 0,
-            i: "block3"
+            i: "chat_x"
         },
         {
             w: 4,
             h: 2,
             x: 0,
             y: 0,
-            i: "block4"
+            i: "task_x"
         }
     ]
 };

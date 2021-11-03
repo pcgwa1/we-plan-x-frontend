@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
+import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { Button, Icon } from "@material-ui/core";
 
@@ -9,11 +10,25 @@ import {SimpleCard} from "egret";
 import GridItemContainer from "./GridItemContainer";
 import AddGridBlock from "./AddGridBlock";
 import FirebaseAuthService from "../../../services/firebase/firebaseAuthService";
-
+import CustomizedDialogs from "./CustomizedDialog";
 import { setBreakPoint, setLayout, setData, setType, setTitle} from "../../../redux/actions/GridLayout";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const originalLayouts = getFromLS("layouts") || {};
+
+const styles = theme => ({
+  root: {
+    position: "absolute",
+    bottom: 0,
+    right: 0
+  },
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500]
+  }
+});
 
 function getFromLS(key) {
     let ls = {};
@@ -38,6 +53,15 @@ function getFromLS(key) {
       );
     }
   }
+
+  const DialogFillscreen = withStyles(styles)(props => {
+    const { children, classes, onClose } = props;
+    return (
+      <div className={classes.root}>
+        {children}
+      </div>
+    );
+  });
 class GridLayout extends Component {
     handleBreakPointChange = breakpoint => {
         this.props.setBreakPoint(breakpoint);
@@ -59,12 +83,11 @@ class GridLayout extends Component {
         FirebaseAuthService.getLayoutData(this.props.uid).then(item => {
           if(item){
             const appNames = Object.keys(item.blocks);
-            this.setState({ blocks: appNames, layouts: item.layouts, appData: item.blocks });
+            this.setState({ blocks: item.blocks, layouts: item.layouts, appData: item.blocks });
           } else {
             const { data, appData, layouts } = this.props;
-            const appNames = Object.keys(appData);
-            console.log(data, appNames)
-            this.setState({ blocks: data, layouts: layouts, appData: appData });
+          
+            this.setState({ blocks: appData, layouts: layouts, appData: appData });
           }
           
           // const { data, layouts } = this.props;
@@ -158,12 +181,14 @@ class GridLayout extends Component {
         this.props.setType({ key: blockName, value: 'blank' , item: 'type' })
         this.props.setData({ key: blockName, value: [] , item: 'data' })
         this.setState({ 
-          blocks: this.state.blocks.concat(blockName), 
+          blocks: this.state.blocks.concat(block), 
           layouts: layoutData,
         });
       }
 
     render() {
+
+      console.log(this.state.blocks)
         return (
           <div className="dashboard-grid-layout">
             <div className="dashboard-grid-layout-actions">
@@ -183,9 +208,13 @@ class GridLayout extends Component {
                 }
             >
                 {this.state.blocks.map(item => 
-                  <div className={`grid-item`} key={item} data-grid={{ w: 2, h: 3, x: 0, y: 0, minW: 2, minH: 3 }}>
-                      <SimpleCard title={item}>
-                          {item}
+                  <div className={`grid-item`} key={item.type} data-grid={{ w: 2, h: 3, x: 0, y: 0, minW: 2, minH: 3 }}>
+                      <SimpleCard title={item.appName}>
+                          {item.apppName}
+                          <DialogFillscreen>
+                            <CustomizedDialogs appInfo={item} />
+                          </DialogFillscreen>
+                          
                       </SimpleCard>
                   </div>)}
             </ResponsiveReactGridLayout>

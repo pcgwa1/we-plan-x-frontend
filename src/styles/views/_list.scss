@@ -26,6 +26,12 @@
   .grid-view {
     .grid__card {
       position: relative;
+      cursor: pointer;
+
+      .grid_card_info {
+        height: 100%;
+        padding: 0 16px;
+      }
 
       &:hover {
         .grid__card-top {
@@ -91,6 +97,11 @@
           // max-height: 200px;
         }
       }
+
+      .grid__card_header {
+        padding: 16px 0 0 16px;
+      }
+
       .grid__card-bottom {
         .email {
           display: none;

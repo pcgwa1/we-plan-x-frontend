@@ -79,6 +79,13 @@ export default function FullScreenDialog({ onAddBlock, layouts }) {
       >
         <AppBar className={classes.appBar}>
           <Toolbar>
+      
+            <Typography variant="h6" className={classes.title}>
+              Apps
+            </Typography>
+            {/* <Button color="inherit" onClick={handleClose}>
+              save
+            </Button> */}
             <IconButton
               edge="start"
               color="inherit"
@@ -87,12 +94,6 @@ export default function FullScreenDialog({ onAddBlock, layouts }) {
             >
               <CloseIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Apps
-            </Typography>
-            {/* <Button color="inherit" onClick={handleClose}>
-              save
-            </Button> */}
           </Toolbar>
         </AppBar>
         <AppGridView createBlock={createBlock} />

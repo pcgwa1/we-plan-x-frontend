@@ -11,33 +11,33 @@ const apps = [
     company: "We Plan X",
     id: 1,
     appImage: "/assets/images/apps/workflow.png",
-    appName: "Plan X",
-    description: 'Planning app',
-    type: 'plan_x'
+    appName: "Kanban X",
+    description: 'Kanban app',
+    type: 'kanban_x'
   },
   {
     company: "We Plan X",
     id: 2,
     appImage: "/assets/images/apps/notes.png",
-    appName: "Note X",
-    description: 'Note app',
-    type: 'note_x'
+    appName: "Doc X",
+    description: 'Doc app',
+    type: 'doc_x'
   },
   {
     company: "We Plan X",
     id: 3,
     appImage: "/assets/images/apps/chat.png",
-    appName: "Chat X",
+    appName: "Drive X",
     description: 'Chat app',
-    type: 'chat_x'
+    type: 'drive_x'
   },
   {
     company: "We Plan X",
     id: 4,
     appImage: "/assets/images/apps/note.png",
-    appName: "Task X",
-    description: 'Task app',
-    type: 'task_x'
+    appName: "Project X",
+    description: 'Project app',
+    type: 'project_x'
   }
 ]
 
@@ -45,7 +45,7 @@ class AppList extends Component {
   originalList = apps;
   state = {
     textfieldValue: "",
-    sliderValue: 30,
+    sliderValue: 15,
     list: apps,
     viewMode: "grid" // list, grid
   };
@@ -59,7 +59,7 @@ class AppList extends Component {
       () =>
         this.setState({
           list: this.originalList.filter(item =>
-            item.projectName
+            item.appName
               .toLowerCase()
               .match(event.target.value.toLowerCase())
           )
