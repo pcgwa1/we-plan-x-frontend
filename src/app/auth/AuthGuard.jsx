@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import AppContext from "app/appContext";
+import {AppContext} from "app/appContext";
 
 class AuthGuard extends Component {
   constructor(props, context) {

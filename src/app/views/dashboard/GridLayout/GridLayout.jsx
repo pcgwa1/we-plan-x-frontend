@@ -9,6 +9,7 @@ import { Button, Icon } from "@material-ui/core";
 import {SimpleCard} from "egret";
 import GridItemContainer from "./GridItemContainer";
 import AddGridBlock from "./AddGridBlock";
+import SelectDeck from "./SelectDeck";
 import FirebaseAuthService from "../../../services/firebase/firebaseAuthService";
 import CustomizedDialogs from "./CustomizedDialog";
 import { setBreakPoint, setLayout, setData, setType, setTitle} from "../../../redux/actions/GridLayout";
@@ -20,7 +21,7 @@ const styles = theme => ({
   root: {
     position: "absolute",
     bottom: 0,
-    right: 0
+    left: 0
   },
   closeButton: {
     position: "absolute",
@@ -82,10 +83,10 @@ class GridLayout extends Component {
       componentDidMount(){
         FirebaseAuthService.getLayoutData(this.props.uid).then(item => {
           if(item){
-            const appNames = Object.keys(item.blocks);
+            // const appNames = Object.keys(item.blocks);
             this.setState({ blocks: item.blocks, layouts: item.layouts, appData: item.blocks });
           } else {
-            const { data, appData, layouts } = this.props;
+            const { appData, layouts } = this.props;
           
             this.setState({ blocks: appData, layouts: layouts, appData: appData });
           }
@@ -187,12 +188,10 @@ class GridLayout extends Component {
       }
 
     render() {
-
-      console.log(this.state.blocks)
         return (
           <div className="dashboard-grid-layout">
             <div className="dashboard-grid-layout-actions">
-            {/*  */}
+                <SelectDeck />
                 <AddGridBlock onAddBlock={(lyts, blk) => this.onAddBlock(lyts, blk)}  layouts={this.state.layouts} />
             </div>
             <ResponsiveReactGridLayout

@@ -67,7 +67,7 @@ export default function FullScreenDialog({ onAddBlock, layouts }) {
   }
 
   return (
-    <div>
+    <div style={{ marginLeft: 12}}>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Apps
       </Button>

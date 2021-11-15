@@ -11,6 +11,7 @@ import {
 import { connect } from "react-redux";
 import { setLayoutSettings } from "app/redux/actions/LayoutActions";
 import { logoutUser } from "app/redux/actions/UserActions";
+import { toggleCreateDeck } from "app/redux/actions/DeckActions";
 import { PropTypes } from "prop-types";
 import { EgretMenu, EgretSearchBox } from "egret";
 import { isMdScreen } from "utils";
@@ -98,7 +99,9 @@ class Layout1Topbar extends Component {
                 <NotificationBar />
 
                 {/*<ShoppingCart></ShoppingCart>*/}
-
+                <IconButton onClick={() => this.props.toggleCreateDeck()}>
+                  <Icon>addCircle</Icon>
+                </IconButton>
                 <EgretMenu
                   menuButton={
                     <img
@@ -135,7 +138,7 @@ class Layout1Topbar extends Component {
                     className="flex flex-middle"
                     style={{ minWidth: 185 }}
                   >
-                    <Icon> power_settings_new </Icon>
+                    <Icon>power_settings_new </Icon>
                     <span className="pl-16"> Logout </span>
                   </MenuItem>
                 </EgretMenu>
@@ -154,6 +157,7 @@ class Layout1Topbar extends Component {
 Layout1Topbar.propTypes = {
   setLayoutSettings: PropTypes.func.isRequired,
   logoutUser: PropTypes.func.isRequired,
+  toggleCreateDeck: PropTypes.func.isRequired,
   settings: PropTypes.object.isRequired
 };
 
@@ -167,7 +171,7 @@ export default withStyles(styles, { withTheme: true })(
   withRouter(
     connect(
       mapStateToProps,
-      { setLayoutSettings, logoutUser }
+      { setLayoutSettings, logoutUser, toggleCreateDeck }
     )(Layout1Topbar)
   )
 );

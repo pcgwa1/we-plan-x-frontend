@@ -10,7 +10,7 @@ import Layout1Topbar from "./Layout1Topbar";
 import Layout1Sidenav from "./Layout1Sidenav";
 import Footer from "../SharedCompoents/Footer";
 import SecondarySidebar from "../SharedCompoents/SecondarySidebar";
-import AppContext from "app/appContext";
+import {AppContext} from "app/appContext";
 // import {EgretLoadable} from "egret";
 
 // const SecondarySidebar = EgretLoadable({

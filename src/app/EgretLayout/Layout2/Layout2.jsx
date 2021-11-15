@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import { Hidden } from "@material-ui/core";
-import AppContext from "app/appContext";
+import {AppContext} from "app/appContext";
 import Footer from "../SharedCompoents/Footer";
 import Layout2Navbar from "./Layout2Navbar";
 import Layout2Sidenav from "./Layout2Sidenav";

@@ -22,14 +22,15 @@ import EducationChart from "./EducationChart";
 import GridLayout from "./GridLayout/GridLayout";
 import {PropTypes} from "prop-types";
 import {connect} from "react-redux";
-import {addNewCardInList, deleteListFromBoard, renameListInBoard} from "../../redux/actions/ScrumBoardActions";
+import { toggleCreateDeck } from "../../redux/actions/DeckActions";
+import CreateDeck from "./CreateDeck"
 
 class OneDeck extends Component {
 
 
   state = {};
   render() {
-    const { data, appData, layouts } = this.props;
+    const { data, appData, layouts, openCreateDeck } = this.props;
     // console.log('layouts:: ', layouts);
     // console.log(data);
 
@@ -44,6 +45,7 @@ class OneDeck extends Component {
           />
         </div> */}
         <GridLayout data={data} appData={appData} layouts={layouts} />
+        <CreateDeck open={openCreateDeck} handleClose={this.props.toggleCreateDeck} />
       </div>
     );
   }
@@ -54,8 +56,10 @@ const mapStateToProps = state => ({
   data: Object.keys(state.gridlayout.data),
   appData: state.gridlayout.data,
   layouts: { ...state.gridlayout.layouts },
+  openCreateDeck: state.deck.toggle_create_deck,
 });
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    { toggleCreateDeck }
 )(OneDeck);
