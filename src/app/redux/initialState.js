@@ -5,6 +5,7 @@ import layoutConfig from "./gridLayoutConfig";
 const initialState = {
     data: [
         {
+            company: "We Plan X",
             id: 1,
             appImage: "/assets/images/apps/workflow.png",
             appName: "Plan X",

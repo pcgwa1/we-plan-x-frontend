@@ -73,27 +73,21 @@ class GridLayout extends Component {
     
         this.state = {
           // layouts: JSON.parse(JSON.stringify(originalLayouts)),
+          newCounter: 1,
+          appData: null,
           layouts: {},
           blocks: [],
-          newCounter: 1,
-          appData: null
+          decks: [],
+          currentDeck: 0
         };
       }
 
-      componentDidMount(){
-        FirebaseAuthService.getLayoutData(this.props.uid).then(item => {
-          if(item){
-            // const appNames = Object.keys(item.blocks);
-            this.setState({ blocks: item.blocks, layouts: item.layouts, appData: item.blocks });
-          } else {
-            const { appData, layouts } = this.props;
-          
-            this.setState({ blocks: appData, layouts: layouts, appData: appData });
-          }
-          
-          // const { data, layouts } = this.props;
-        });
-        
+      componentDidUpdate(prevProps) {
+        if (this.props.blocks.length !== prevProps.blocks.length) {
+          const { blocks, layouts, decks } = this.props;
+          this.setState({ blocks: blocks, layouts: layouts, appData: blocks, decks  });
+          console.log("decks:: ", this.props.decks.length)
+        }
       }
     
       static get defaultProps() {
@@ -110,7 +104,7 @@ class GridLayout extends Component {
         this.setState({ layouts: layouts });
       }
 
-      saveToDb(layouts, num){
+      saveToDb(layouts, num, isChanging){
 
         this.setState({
           newCounter: num + 1 
@@ -134,8 +128,17 @@ class GridLayout extends Component {
           this.props.setLayout(layouts);
           saveToLS("layouts", layouts);
           this.setState({ layouts });
+          // decks
+          if(this.props.decks.length && !isChanging){
+            FirebaseAuthService.updateDeck(layouts, this.state.blocks, this.props.currentDeck.id)
+
+          } else {
+            // FirebaseAuthService.createDeck(layouts, this.state.blocks, this.props.uid, "My")
+            this.props.toggleDeckChange(false)
+          }
+
           
-          FirebaseAuthService.updateGridLayout(layouts, this.state.blocks, this.props.uid)
+          
         }
         
        
@@ -191,7 +194,7 @@ class GridLayout extends Component {
         return (
           <div className="dashboard-grid-layout">
             <div className="dashboard-grid-layout-actions">
-                <SelectDeck />
+                <SelectDeck decks={this.state.decks} toggleDeck={this.props.toggleDeck}/>
                 <AddGridBlock onAddBlock={(lyts, blk) => this.onAddBlock(lyts, blk)}  layouts={this.state.layouts} />
             </div>
             <ResponsiveReactGridLayout
@@ -202,6 +205,7 @@ class GridLayout extends Component {
                 cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
                 isBounded={true}
                 onLayoutChange={(layout, layouts) => {
+                  console.log("onLayoutChange", this.state.newCounter);
                     this.saveToDb(layouts, this.state.newCounter)
                   }
                 }
@@ -223,8 +227,9 @@ class GridLayout extends Component {
 }
 
 GridLayout.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // data: PropTypes.arrayOf(PropTypes.string).isRequired,
     layouts: PropTypes.object.isRequired,
+    blocks: PropTypes.arrayOf(PropTypes.object).isRequired,
     uid: PropTypes.string.isRequired
 };
 

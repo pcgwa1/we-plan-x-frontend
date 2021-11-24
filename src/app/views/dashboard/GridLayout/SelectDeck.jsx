@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -40,8 +40,14 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function CustomizedMenus() {
+export default function CustomizedMenus({ decks, toggleDeck }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [currentDeck, setCurrentDeck] = React.useState("");
+
+  useEffect(() => {
+    if(decks.length) setCurrentDeck(decks[0].name)
+    
+  }, [ decks ]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -50,6 +56,14 @@ export default function CustomizedMenus() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleChangeDeck = (i) => {
+    setCurrentDeck(decks[i].name)
+    toggleDeck(i)
+    handleClose()
+  };
+
+  console.log("anchorEl:: ", anchorEl)
 
   return (
     <div>
@@ -61,7 +75,7 @@ export default function CustomizedMenus() {
         onClick={handleClick}
         style={{ minWidth: 150}}
       >
-        My Deck
+        {currentDeck}
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -70,24 +84,17 @@ export default function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {/* <StyledMenuItem>
-          <ListItemIcon>
-            <SendIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem> */}
-        <StyledMenuItem>
-          <ListItemIcon>
-            <AddIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Create Deck" />
-        </StyledMenuItem>
+        {decks.map((deck, i) => {
+          return (
+            <StyledMenuItem key={i} onClick={() => handleChangeDeck(i)}>
+              {/* <ListItemIcon>
+                <AddIcon fontSize="small" />
+              </ListItemIcon> */}
+              <ListItemText primary={deck.name} />
+            </StyledMenuItem>
+          )
+        })}
+        
       </StyledMenu>
     </div>
   );

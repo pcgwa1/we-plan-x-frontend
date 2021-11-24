@@ -8,7 +8,6 @@ class FirebaseAuthService {
   firestore;
   //   database;
   //   storage;
-
   googleProvider;
   facebookProvider;
   twitterProvider;
@@ -90,15 +89,46 @@ class FirebaseAuthService {
     return this.auth.signOut();
   };
 
-  updateGridLayout = (layout, blocks, uid) => {
-    const docRef = this.firestore.collection('layouts').doc(uid)
-    docRef.set({
+  create_UUID = () => {
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
+
+
+
+  createDeck = (layout, blocks, uid, name) => {
+    const docRef = this.firestore.collection('decks').doc(this.create_UUID())
+    return docRef.set({
         id: docRef.id,
+        uid: uid,
+        name: name,
         blocks: blocks,
         layouts: layout
       })
       .then(() => {
-        console.log("Document successfully written!");
+        console.log("Document successfully created!");
+        return true;
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+        return false;
+      });
+  }
+
+  updateDeck = (layout, blocks, docId) => {
+    console.log("Document updated! ", docId);
+    const docRef = this.firestore.collection('decks').doc(docId)
+    docRef.update({
+        blocks: blocks,
+        layouts: layout
+      })
+      .then(() => {
+        console.log("Document successfully updated!");
       })
       .catch((error) => {
         console.error("Error writing document: ", error);
@@ -108,12 +138,17 @@ class FirebaseAuthService {
   getLayoutData = async docId => {
     //   generally it's better to use uid for docId
     return await this.firestore
-      .collection("layouts")
-      .doc(docId)
+      .collection("decks")
+      .where("uid", "==", docId)
       .get()
-      .then(doc => {
-        console.log('get layouts', doc.data());
-        return doc.data()
+      .then(querySnapshot => {
+        let results = []
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            results.push(doc.data())
+        });
+        return results;
       });
   };
 }
